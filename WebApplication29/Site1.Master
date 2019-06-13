@@ -1,0 +1,165 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="WebApplication29.Site1" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="Animation/anime.min.js" ></script>
+  <link href="Animation/animate.css" rel="Stylesheet" />
+  <script  src="Animation/jquery-3.3.1.min.js"></script>
+  <script>
+      $(document).ready(function () {
+          var l1 = 0;
+          var l2 = 0;
+          var l3 = 0;
+          $("#btnHome").hover(function () {
+              $("#dl").hide();
+              $("#d2").hide();
+              $("#d3").hide();
+          });
+          $("#btnl").hover(function () {
+              l1++;
+              if (l1 % 2 == 0) {
+              } else {
+                  $("#dl").show();
+                  $("#d2").hide();
+                  $("#d3").hide();
+              }
+          });
+          $("#btnemp").hover(function () {
+              l2++;
+              if (l2 % 2 == 0) {
+              } else {
+                  $("#d2").show();
+                  $("#dl").hide();
+                  $("#d3").hide();
+              }
+          });
+          $("#btnpe").hover(function () {
+              l2++;
+              if (l2 % 2 == 0) {
+              } else {
+                  $("#d3").show();
+                  $("#d2").hide();
+                  $("#dl").hide();
+              }
+          });
+      });
+  </script> 
+    <asp:ContentPlaceHolder ID="head" runat="server">
+
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+      
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#" ><a class="animated  infinite shake"  style="font-weight:bold;"  >Library</a></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a style="margin-left:40px;" class="nav-link" href="#"><asp:Button runat="server" style="font-weight:bold;"  ID="btnHome" PostBackUrl="~/Menu.aspx" Text="Home" class="btn btn-warning"  /> <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link"  href="#"><asp:Button  runat="server"   Text="Livre" ID="btnl" class="btn btn-warning" style="font-weight:bold;"  /></a>
+      </li>
+      <li class="nav-item  active">
+        <a class="nav-link " href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <asp:Button  runat="server"  Text="Emprunt" class="btn btn-warning" ID="btnemp" style="font-weight:bold;" />
+          
+        </a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link " href="#" tabindex="-1"><asp:Button runat="server"  ID="btnpe" Text="Personne" class="btn btn-warning" style="font-weight:bold;" /></a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <asp:TextBox runat="server" class="form-control mr-sm-2" style="width:160px;" 
+          type="search" placeholder="Search" aria-label="Search" ID="txtsh" />
+      <asp:Button runat="server" class="btn btn-outline-warning my-2 my-sm-0" 
+          type="submit"  ID="btnadd" Text="Search" onclick="btnadd_Click" />
+    </form>
+  </div>
+</nav>
+
+<div id="dl" style="display:none;" >
+ <nav class="navbar navbar-expand-lg navbar-light bg-light">
+     <a class="navbar-brand" href="#" ><a class="animated  infinite bounce"  style="font-weight:bold;"  >Livre</a></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="Div1">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a style="margin-left:40px;" class="nav-link" href="#"><asp:Button runat="server" style="font-weight:bold;"  ID="Button1" Text="Ajouter " PostBackUrl="~/AjouterLivre.aspx" class="btn btn-primary"  /> <span class="sr-only">(current)</span></a>
+      </li>
+     
+      <li class="nav-item active">
+        <a class="nav-link " href="#" tabindex="-1"><asp:Button runat="server" PostBackUrl="~/Listliv.aspx"  ID="Button4" Text="List" class="btn btn-primary" style="font-weight:bold;" /></a>
+      </li>
+    </ul>
+   
+  </div>
+</nav>
+</div>
+
+
+<div id="d2" style="display:none;" >
+ <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#" ><a class="animated  infinite bounce"  style="font-weight:bold;"  >Emprunt</a></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="Div3">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a style="margin-left:40px;" class="nav-link" href="#"><asp:Button runat="server" style="font-weight:bold;"  PostBackUrl="~/AjouterEmprunt.aspx" ID="Button5" Text="Ajouter " class="btn btn-primary"  /> <span class="sr-only">(current)</span></a>
+      </li>
+   
+      <li class="nav-item active">
+        <a class="nav-link " href="#" tabindex="-1"><asp:Button runat="server"  PostBackUrl="~/ListEmprunt.aspx" ID="Button8" Text="List"   class="btn btn-primary" style="font-weight:bold;" /></a>
+      </li>
+    </ul>
+   
+  </div>
+</nav>
+</div>
+<div id="d3" style="display:none;" >
+ <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#" ><a class="animated  infinite bounce"  style="font-weight:bold;"  >Personne</a></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="Div4">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a style="margin-left:40px;" class="nav-link" href="#"><asp:Button runat="server" style="font-weight:bold;"  PostBackUrl="~/ajouterpersonne.aspx" ID="Button2" Text="Ajouter " class="btn btn-primary"  /> <span class="sr-only">(current)</span></a>
+      </li>
+   
+      <li class="nav-item active">
+        <a class="nav-link " href="#" tabindex="-1"><asp:Button runat="server"  ID="Button3" Text="List"   class="btn btn-primary"  PostBackUrl="~/WebForm1.aspx" style="font-weight:bold;" /></a>
+      </li>
+    </ul>
+   
+  </div>
+</nav>
+</div>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+</body>
+</html>
